@@ -24,7 +24,17 @@ export default function Home() {
             Save and see your changes instantly.
           </li>
         </ol>
-
+        <h1 className="text-3xl font-bold underline">
+          Hello world!
+        </h1>
+        <RandomShit></RandomShit>
+        <div className="mx-auto flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
+          <img className="size-12 shrink-0" src="/img/logo.svg" alt="ChitChat Logo" />
+          <div>
+            <div className="text-xl font-medium text-black dark:text-white">ChitChat</div>
+            <p className="text-gray-500 dark:text-gray-400">You have a new message!</p>
+          </div>
+        </div>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
@@ -100,4 +110,15 @@ export default function Home() {
       </footer>
     </div>
   );
+}
+
+export function RandomShit() {
+  return <article>
+            <h1 className="randomshit">My First Component</h1>
+            <ol>
+              <li className="crap">Components: UI Building Blocks</li>
+              <li>Defining a Component</li>
+              <li>Using a Component</li>
+            </ol>
+         </article>
 }

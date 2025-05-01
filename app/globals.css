@@ -24,3 +24,11 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.randomshit {
+  @apply text-black text-center w-20 h-16;
+}
+
+.crap {
+  @apply text-center;
+}
