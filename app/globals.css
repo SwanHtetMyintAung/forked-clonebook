@@ -1,34 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #595959;
   --foreground: #171717;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.navbar{
+  @apply w-screen h-[66px] flex flex-row items-center relative shadow-xl
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.navbar-items-container{
+  @apply flex flex-row w-[20%] h-full justify-around items-center
 }
-
-.randomshit {
-  @apply text-black text-center w-20 h-16;
+.navbar-item   {
+  @apply w-full h-full mx-2 flex justify-center items-center 
+  hover:border-b-4 hover:text-blue-700 hover:border-b-blue-700 transition-all duration-75
 }
-
-.crap {
-  @apply text-center;
+.navbar-item > * {
+  @apply w-6/12 h-6/12 
+}
+/* to make an ative element later */
+.navbar-active{
+  @apply hover:border-b-4 hover:text-blue-700 hover:border-b-blue-700 transition-all duration-75
 }
