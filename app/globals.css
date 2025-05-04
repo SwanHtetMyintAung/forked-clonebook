@@ -1,28 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  --background: #595959;
-  --foreground: #171717;
+  --primary-blue : rgb(8, 102, 255);
+  --navbar-height : 56px;
+  --hover-background : #99a1af;
 }
 body{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 .navbar{
-  @apply w-screen h-[66px] flex flex-row items-center relative shadow-xl
+  @apply w-screen h-[var(--navbar-height)] flex flex-row items-center relative shadow-xl
 }
 .navbar-items-container{
-  @apply flex flex-row w-[20%] h-full justify-around items-center
+  @apply flex flex-row h-full justify-around items-center
 }
-.navbar-item   {
-  @apply w-full h-full mx-2 flex justify-center items-center 
-  hover:border-b-4 hover:text-blue-700 hover:border-b-blue-700 transition-all duration-75
+.navbar-item  {
+  @apply w-full h-full mx-1 flex flex-col justify-center items-center rounded-xl relative
+  hover:bg-[var(--hover-background)]
 }
-.navbar-item > * {
-  @apply w-6/12 h-6/12 
+.navbar-item > button {
+  @apply w-10/12 h-10/12 flex justify-center items-center bg-gray-400 rounded-4xl
 }
-/* to make an ative element later */
+/* to make an active element later */
 .navbar-active{
-  @apply hover:border-b-4 hover:text-blue-700 hover:border-b-blue-700 transition-all duration-75
+  /* @apply hover:border-b-4 hover:text-blue-700 hover:border-b-blue-700 transition-all duration-75 */
+  @apply text-[var(--primary-blue)] transition-all duration-75
+}
+.navbar-active  > hr {
+  @apply  bg-[var(--primary-blue)] inline w-full h-[5px] border-0 absolute right-0 top-12 mt-1
+}
+.navbar-items-container > * {
+  @apply w-full h-full
+}
+.navbar-hr{
+  display: none;
+}
+.sidebar-item{
+  @apply w-full mx-6 hover:bg-[var(--hover-background)]
+}
+.sidebar-link{
+  @apply flex flex-row items-center h-12 pl-2
+}
+.sidebar-link > p {
+  @apply block px-4
 }
