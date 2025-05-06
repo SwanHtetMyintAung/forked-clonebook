@@ -1,9 +1,36 @@
-import React from 'react'
+'use client'
+import React, {useState} from 'react'
 import Image from "next/image";
 import Link from 'next/link';
 import { Search, Home, Bell, Video, User, Store, Users, MessageCircle, Settings } from 'lucide-react';
+
+const navbarItemsData = [
+  { icon: Home, url: "/" },
+  { icon: Bell, url: "/notifications" },
+  { icon: Video, url: "/watch" },
+  { icon: Users, url: "/friends" },
+];
+interface Props {
+  item: { icon: React.ReactElement; url: string };
+  Active?: boolean;
+  onClick?: () => void; // Add onClick prop
+}
+
+const NavbarItem: React.FC<Props> = ({item: { icon, url }, Active=false, onClick})=>{
+  return(
+    <li onClick={onClick} className={`navbar-item ${Active && "navbar-active"}`}><Link className='w-full h-full' href={url} >
+      {icon }</Link>
+      <hr className='navbar-hr'/>
+    </li>
+  )
+}
+
 export default function Navbar() {
-  return (
+  const [activeIndex, setActiveIndex] = useState<number | null>(0); 
+  const handleClick = (index: number) => {
+    setActiveIndex(index);
+  };
+  return ( 
     <nav className="navbar">
         <div className="logo-container h-10/12 flex  rounded-2xl mx-6">
           <Image className='mr-3' src="/facebook-logo.png" width="50" height="50" alt="facebook logo"/>
@@ -14,10 +41,14 @@ export default function Navbar() {
           </div>
         </div>
         <ul className="navbar-items-container w-4/12 mr-6/12 ml-[10%]">
-          <li className="navbar-item navbar-active"><Link href="/"><Home/></Link><hr className='navbar-hr'/></li>
-          <li className="navbar-item"><Link href="/"><Bell/></Link><hr className='navbar-hr'/></li>
-          <li className="navbar-item"><Link href="/"><Video/></Link><hr className='navbar-hr'/></li>
-          <li className="navbar-item"><Link href="/"><Users/></Link><hr className='navbar-hr'/></li>
+          {navbarItemsData.map((item, index) => (
+            <NavbarItem
+              key={index}
+              item={{ icon: <item.icon />, url: item.url }}
+              Active={activeIndex === index}
+              onClick={() => handleClick(index)}
+            />
+          ))}
         </ul>
         <ul className="navbar-items-container absolute right-0 w-2/12 mr-4 ">
           <li className="navbar-item"><button><Store/></button></li>
