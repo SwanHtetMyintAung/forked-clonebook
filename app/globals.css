@@ -11,6 +11,7 @@ body{
   padding: 0;
   overflow: hidden;
 }
+/* Navbar */
 .navbar{
   @apply w-screen h-[var(--navbar-height)] flex flex-row items-center relative shadow-xl
 }
@@ -42,6 +43,8 @@ body{
 .navbar-items-container > * {
   @apply w-full h-full
 }
+
+/* Side Bar */
 .sidebar-item{
   @apply w-full mx-6 hover:bg-[var(--hover-background)]
 }
@@ -50,4 +53,12 @@ body{
 }
 .sidebar-link > p {
   @apply block px-4
+}
+
+/* status Box */
+.status-box > .second-section > .status-activity{
+  @apply flex flex-row p-4 items-center font-medium 
+}
+.status-box > .second-section > .status-activity > p {
+  @apply ml-2
 }

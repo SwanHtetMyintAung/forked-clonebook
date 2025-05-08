@@ -50,7 +50,7 @@ export default function Navbar() {
             />
           ))}
         </ul>
-        <ul className="navbar-items-container absolute right-0 w-2/12 mr-4 ">
+        <ul className="navbar-items-container absolute right-0 w-2/12 mr-4 mt-2">
           <li className="navbar-item"><button><Store/></button></li>
           <li className="navbar-item"><button><MessageCircle/></button></li>
           <li className="navbar-item"><button><Settings/></button></li>

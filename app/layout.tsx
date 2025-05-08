@@ -20,8 +20,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar/>
+        <div className="container relative flex flex-row">
         <Sidebar/>
         {children}
+        <Sidebar/>
+        </div>
       </body>
     </html>
   );
