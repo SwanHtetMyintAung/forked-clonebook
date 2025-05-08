@@ -2,7 +2,7 @@
 
 :root {
   --primary-blue : rgb(8, 102, 255);
-  --navbar-height : 56px;
+  --navbar-height : 60px;
   --hover-background : #99a1af;
 }
 body{
@@ -61,4 +61,29 @@ body{
 }
 .status-box > .second-section > .status-activity > p {
   @apply ml-2
+}
+
+.pfp {
+  border-radius: 50%;
+  object-fit: cover;
+  border: none;
+}
+
+.hico{
+}
+
+.xfx01vb {
+  color: #65686c;
+}
+.x2h7rmj {
+  transition-property: color, fill, stroke;
+}
+.x1qfuztq {
+  transition-timing-function: var(--fds-soft);
+}
+.x1lliihq {
+  display: block;
+}
+.x1k90msu {
+  transition-duration: var(--fds-fast);
 }
