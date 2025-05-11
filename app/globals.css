@@ -9,7 +9,7 @@ body{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 /* Navbar */
 .navbar{
@@ -86,4 +86,20 @@ body{
 }
 .x1k90msu {
   transition-duration: var(--fds-fast);
+}
+
+
+/* post  */
+
+.text-ellipse{
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+}
+
+.post-card-activity{
+  @apply flex my-2
 }
