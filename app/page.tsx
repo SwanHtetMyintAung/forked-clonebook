@@ -4,7 +4,7 @@ import StatusBox from "./components/StatusBox";
 
   export default function Home() {
     return (
-      <div className="container w-5/12 mx-20 overflow-y-auto">
+      <div className="container overflow-y-auto col-start-2 col-end-4 px-8 relative">
         <StatusBox/>
         <Post/>
         <Post/>

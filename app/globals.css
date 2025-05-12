@@ -1,11 +1,17 @@
 @import "tailwindcss";
 
+::-webkit-scrollbar {
+  width:0px;
+  height:0px;
+  background-color: transparent;
+}
 :root {
   --primary-blue : rgb(8, 102, 255);
   --navbar-height : 60px;
   --hover-background : #99a1af;
 }
 body{
+  max-width:100%;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -13,10 +19,11 @@ body{
 }
 /* Navbar */
 .navbar{
-  @apply w-screen h-[var(--navbar-height)] flex flex-row items-center relative shadow-xl
+  @apply max-w-full h-[var(--navbar-height)] flex flex-row items-center shadow-xl 
+  fixed top-0 left-0 right-0 z-10 bg-white
 }
 .navbar-items-container{
-  @apply flex flex-row h-full justify-around items-center
+  @apply flex-row h-full justify-around items-center
 }
 .navbar-item  {
   @apply w-full h-full relative
@@ -24,16 +31,20 @@ body{
 }
 .navbar-item > a {
   @apply mx-1 flex flex-col justify-center items-center rounded-xl relative
-  hover:bg-[var(--hover-background)]
+  
+}
+.navbar-item > a:not(.navbar-active){
+  @apply hover:bg-[var(--hover-background)] 
 }
 .navbar-item > button {
   @apply w-10/12 h-10/12 flex justify-center items-center bg-gray-400 rounded-4xl
+
 }
 /* to make an active element later */
 .navbar-active{
-  /* @apply hover:border-b-4 hover:text-blue-700 hover:border-b-blue-700 transition-all duration-75 */
-  @apply text-[var(--primary-blue)] transition-all duration-75
+  @apply text-[var(--primary-blue)] transition-all duration-75 
 }
+
 .navbar-hr{
   display: none;
 }

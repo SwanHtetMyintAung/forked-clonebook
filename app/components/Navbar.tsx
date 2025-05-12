@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { Search, Home, Bell, Video, User, Store, Users, MessageCircle, Settings } from 'lucide-react';
 
 const navbarItemsData = [
-  { icon: HomeICon, url: "/" },
-  { icon: VideoIcon, url: "/notifications" },
+  { icon: HomeIcon, url: "/" },
+  { icon: VideoIcon, url: "/watch " },
   { icon: Video, url: "/watch" },
   { icon: Users, url: "/friends" },
 ];
@@ -19,7 +19,8 @@ interface Props {
 
 const NavbarItem: React.FC<Props> = ({item: { icon, url }, Active=false, onClick})=>{
   return(
-    <li onClick={onClick} className={`navbar-item ${Active && "navbar-active"}`}><Link className='w-full h-full' href={url} >
+    <li onClick={onClick} className={`navbar-item ${Active && "navbar-active"}`} >
+      <Link className='w-full h-full' href={url} >
       {icon }</Link>
       <hr className='navbar-hr'/>
     </li>
@@ -32,8 +33,8 @@ export default function Navbar() {
     setActiveIndex(index);
   };
   return ( 
-    <nav className="navbar">
-        <div className="logo-container h-10/12 flex  rounded-2xl mx-6">
+    <nav className="navbar fixed top-0">
+        <div className="hidden md:flex logo-container h-10/12   rounded-2xl mx-6">
           {/* <Image className='mr-3' src="/facebook-logo.png" width="50" height="50" alt="facebook logo"/> */}
           <Image className='mr-3' src="/2023_Facebook_icon.svg" width="50" height="50" alt="facebook logo"/>
           <div className='input-container flex flex-row items-center justify-start bg-gray-200 mr-4  w-56 rounded-full'>
@@ -41,7 +42,7 @@ export default function Navbar() {
             <input className='border-0 w-/12 h-10/12 ml-8 rounded-full focus:outline-0 pl-2 caret-transparent' type='text' placeholder="search facebook"></input>
           </div>
         </div>
-        <ul className="navbar-items-container w-4/12 mr-6/12 ml-[10%]">
+        <ul className="flex navbar-items-container w-4/12 mr-6/12 ml-20">
           {navbarItemsData.map((item, index) => (
             <NavbarItem
               key={index}
@@ -51,7 +52,7 @@ export default function Navbar() {
             />
           ))}
         </ul>
-        <ul className="navbar-items-container absolute right-0 w-2/12 mr-4 mt-2">
+        <ul className="hidden md:flex navbar-items-container absolute right-0 w-2/12 mr-4 mt-2">
           <li className="navbar-item"><button><Store/></button></li>
           <li className="navbar-item"><button><MessageCircle/></button></li>
           <li className="navbar-item"><button><Settings/></button></li>
@@ -61,7 +62,7 @@ export default function Navbar() {
   )
 }
 
-export function HomeICon() {
+export function HomeIcon() {
   return(
     <>
       <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" className="pxfx01vb px1lliihq px1tzjh5l px1k90msu px2h7rmj px1qfuztq hico" ><path d="M9.464 1.286C10.294.803 11.092.5 12 .5c.908 0 1.707.303 2.537.786.795.462 1.7 1.142 2.815 1.977l2.232 1.675c1.391 1.042 2.359 1.766 2.888 2.826.53 1.059.53 2.268.528 4.006v4.3c0 1.355 0 2.471-.119 3.355-.124.928-.396 1.747-1.052 2.403-.657.657-1.476.928-2.404 1.053-.884.119-2 .119-3.354.119H7.93c-1.354 0-2.471 0-3.355-.119-.928-.125-1.747-.396-2.403-1.053-.656-.656-.928-1.475-1.053-2.403C1 18.541 1 17.425 1 16.07v-4.3c0-1.738-.002-2.947.528-4.006.53-1.06 1.497-1.784 2.888-2.826L6.65 3.263c1.114-.835 2.02-1.515 2.815-1.977zM10.5 13A1.5 1.5 0 0 0 9 14.5V21h6v-6.5a1.5 1.5 0 0 0-1.5-1.5h-3z"></path></svg>

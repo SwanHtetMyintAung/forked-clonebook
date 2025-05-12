@@ -20,10 +20,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar/>
-        <div className="container relative flex flex-row">
-        <Sidebar/>
-        {children}
-        <Sidebar/>
+        <div className="container mt-20 relative grid grid-cols-4 gap-16">
+          <Sidebar/>
+          {children}
+
         </div>
       </body>
     </html>
