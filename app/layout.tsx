@@ -5,7 +5,7 @@ import "./globals.css";
 //component
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-
+import Overlay from "./components/Overlay";
 export const metadata: Metadata = {
   title: "Facebook",
   description: "Socialize and Connect With People",
@@ -18,10 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="relative">
+        <Overlay/>
         <Navbar/>
         <div className="container mt-20 relative grid grid-cols-4 gap-16">
-          <Sidebar/>
+          {/* <Sidebar/> */}
           {children}
 
         </div>

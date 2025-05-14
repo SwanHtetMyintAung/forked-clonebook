@@ -10,7 +10,12 @@ import  PostUploadModal  from './Modals/PostUploadModal'
 export default function StatusBox() {
   const [showUploadModal,setShowUploadModal] = useState(false)
   const ToggleUploadModal = () =>{
-    console.log("click")
+    const overlay = document.getElementById("overlay");
+    if(!showUploadModal){
+      overlay?.classList.remove("hidden")
+    }else{
+      overlay?.classList.add("hidden")
+    }
     setShowUploadModal(prev => !prev)
   }
 
@@ -18,7 +23,7 @@ export default function StatusBox() {
 
   return (
     <>
-    <div className='status-box w-full shadow-md mt-8 rounded-2xl'>
+    <div className='status-box w-full shadow-md mt-8 rounded-2xl '>
       <div className='first-section p-1 flex flex-row items-center'>
         
           {/* <User className='w-8 h-8 rounded-4xl border-1 mx-3'/> */}

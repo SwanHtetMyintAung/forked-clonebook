@@ -108,9 +108,21 @@ body{
   line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
 
 }
 
+
 .post-card-activity{
   @apply flex my-2
+}
+
+/* comment */
+.comment-text-ellipse{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

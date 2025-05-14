@@ -1,3 +1,5 @@
+'use client'
+import {useRef,useEffect} from "react"
 import { X, User, Users, TriangleIcon } from "lucide-react"
 
 interface PostUploadModalProps {
@@ -7,9 +9,23 @@ interface PostUploadModalProps {
 
 
 export default function PostUploadModal({ toggleUploadModal }: PostUploadModalProps){
+  const modalRef = useRef<HTMLDivElement>(null)
+
+  useEffect(()=>{
+    const handleClickOutside = (event:MouseEvent) =>{
+      if(modalRef.current && !modalRef.current.contains(event.target as Node)){
+        toggleUploadModal()
+      }
+    }
+    document.addEventListener("mousedown",handleClickOutside)
+
+    return () =>{
+      document.removeEventListener("mousedown",handleClickOutside)  
+    }
+  },[])
   return(
-    <div className="w-screen h-screen z-1 absolute border-1  left-0 top-0 bg-[rgba(0,0,0,0.4)]">
-      <div className='card w-5/12 mt-4 mx-auto bg-white rounded-xl shadow-xl' >
+    
+      <div className='card z-100 fixed w-[42.5vw]  top-20 w- mx-auto bg-white rounded-xl shadow-xl' ref={modalRef}>
         <div className='card-header flex relative align-center justify-center px-4 border-gray-200  py-2'>
           <h2 className="font-bold text-center"> Create post</h2>
           <X onClick={toggleUploadModal} className=' bg-gray-300 rounded-3xl absolute right-2'/>
@@ -33,6 +49,5 @@ export default function PostUploadModal({ toggleUploadModal }: PostUploadModalPr
           <button onClick={toggleUploadModal} className="w-full h-8 text-center text-white bg-blue-500 rounded-md">Post</button>
         </div>
       </div>
-    </div>
   )
 }

@@ -1,11 +1,21 @@
 "use client"
 import React, { useState } from 'react'
-import { Earth, X, MoreHorizontal,ThumbsUp, MessageCircle, ArrowDownLeft} from 'lucide-react'
+import { Earth, X, MoreHorizontal, MessageCircle, ArrowDownLeft} from 'lucide-react'
+
+//components
+import PostReact from './PostInteractions/PostReact';
+import PostComment from './PostInteractions/PostComment';
+
 export default function Post() {
     const [textEllipse, setTextEllipse] = useState(true);
     const toggleTextEllipse = () =>{
         setTextEllipse(prev=>!prev)
     }
+    const [postLiked,setPostLiked] = useState(false);
+    const handleThumbsUp = () =>{
+    setPostLiked(prev => !prev);
+    } 
+    
   return (
     <div className='post-card w-full mt-6 shadow-sm  rounded-2xl '>
         <div  className='post-card-header flex relative'>
@@ -23,7 +33,7 @@ export default function Post() {
 
         </div>
         <div className='post-card-body '>
-            <div className={`post-card-text w-10/12 mx-2 ${textEllipse && "text-ellipse"}` }onClick={toggleTextEllipse}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa sed reprehenderit laborum beatae odit. Voluptatum consequuntur odit eum corrupti, assumenda porro ipsa sapiente consequatur illum id ducimus perferendis? Molestiae, consequuntur?
+            <div className={`post-card-text w-10/12 mx-2 ${textEllipse && "text-ellipse"}` } onClick={toggleTextEllipse}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa sed reprehenderit laborum beatae odit. Voluptatum consequuntur odit eum corrupti, assumenda porro ipsa sapiente consequatur illum id ducimus perferendis? Molestiae, consequuntur?
             Odit doloremque ratione sequi quidem nostrum! Fugit hic dignissimos, nam temporibus porro quidem impedit? Omnis, eius reiciendis expedita maiores autem voluptas vero eos distinctio nobis, unde inventore! Nihil, voluptatum eum.
             Possimus a labore omnis nemo quis aperiam error voluptas ipsa perspiciatis commodi ex totam, provident alias culpa perferendis nulla laborum non vero, vel veniam. Libero, fuga labore! Dolorum, sequi corporis.
             Quisquam impedit vero nemo hic voluptate officiis quaerat eos optio labore consequuntur repudiandae id blanditiis voluptates nam, et eveniet. Minima doloremque minus ad facere esse officiis reprehenderit laborum sed totam!
@@ -39,21 +49,19 @@ export default function Post() {
 
         </div>
         <div className='post-card-footer'>
-            <div>React and Shits</div>
+            <div className='flex h-8 items-center px-4'>
+                <p className='mr-auto'>Random people and 9 other</p>
+                <p>{7}shares</p>
+            </div>
             <hr className='bg-gray-100 w-full  opacity-70'/>
-            <div className="post-card-activity-container flex justify-around">
-                <div className='post-card-activity'>
-                   <ThumbsUp/> 
-                   <p>Like</p>
-                </div>
-                <div className='post-card-activity'>
-                   <MessageCircle className='transform-[scaleX(-1)]'/> 
-                   <p>Comment</p>
-                </div>
-                <div className='post-card-activity'>
-                   <ArrowDownLeft className='rotate-180'/> 
-                   <p>share</p>
-                </div>
+            <div className="post-card-activity-container flex justify-around select-none">
+                <PostReact postLiked={postLiked} handleThumbsUp={handleThumbsUp}/>
+                <PostComment postLiked={postLiked} handleThumbsUp={handleThumbsUp}/>
+                {/* <PostInteraction 
+                icon={<ArrowDownLeft className='rotate-180'/> }
+                text="share"
+                callback={test}
+                /> */} 
             </div>
         </div>
     </div>
